@@ -5,6 +5,7 @@ using UnityEngine;
 public class GardenEelBody : MonoBehaviour
 {
     public int speed;
+    public float spaceOfBody;
     public bool isHead;
     public Transform parent;
     
@@ -40,7 +41,7 @@ public class GardenEelBody : MonoBehaviour
         target.z = transform.position.z;
         Vector2 move = (Vector2) (target - transform.position);
             
-        if (move.sqrMagnitude > 3f)
+        if (move.sqrMagnitude > spaceOfBody)
         {
             transform.Translate(move.normalized * Time.deltaTime * speed);
             return true;

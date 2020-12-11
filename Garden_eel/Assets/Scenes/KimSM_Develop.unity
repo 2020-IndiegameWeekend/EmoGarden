@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 1342260504}
 --- !u!1 &501690242
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 1
   parent: {fileID: 0}
 --- !u!1 &737516171
@@ -449,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 262017230}
 --- !u!1 &923812516
@@ -676,6 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 501690246}
 --- !u!1 &1529811583
@@ -773,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 2109314803}
 --- !u!1 &1702293107
@@ -978,6 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 2091494748}
 --- !u!1 &2091494744
@@ -1075,6 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 1529811587}
 --- !u!1 &2109314799
@@ -1172,5 +1179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  spaceOfBody: 1
   isHead: 0
   parent: {fileID: 737516175}
