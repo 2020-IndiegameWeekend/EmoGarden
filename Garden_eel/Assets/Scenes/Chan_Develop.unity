@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 1111606815}
   - component: {fileID: 1111606814}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ObjectSpawnerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,9 +642,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxEmotionObjectCount: 0
+  _curEmotionObjectCount: 0
+  _startObjectCount: 0
   _spawnerIdx: 0
+  spawnPercents: 000000000000000000000000000000000000000000000000
   spawnTime: 1
-  emotionScale: 0
 --- !u!61 &1804503082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -829,6 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 2087072868}
+  _maxProgressValues: 0c0000003c000000870000001d010000
   _curProgressValue: 0
   _curLevel: 1
   _maxLevel: 5

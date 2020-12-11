@@ -22,10 +22,7 @@ public class EmotionObjectSpawner : MonoBehaviour
 
     [SerializeField]
     private float spawnTime = 1f;
-
-    [SerializeField]
-    private EmotionScale emotionScale;
-
+    
     private void Start()
     {
         _boxCollider2d = GetComponent<BoxCollider2D>();

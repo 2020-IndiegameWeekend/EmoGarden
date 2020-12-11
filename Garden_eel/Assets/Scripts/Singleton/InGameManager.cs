@@ -9,6 +9,7 @@ public class InGameManager : MonoBehaviour
 
     private int _score;
 
+    [SerializeField]
     private int[] _maxProgressValues = new int[4] { 12, 60, 135, 285 };
 
     [SerializeField]
