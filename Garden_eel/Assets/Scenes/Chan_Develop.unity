@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
+  ui_InGameMainUI: {fileID: 0}
 --- !u!1 &2037590670
 GameObject:
   m_ObjectHideFlags: 0
