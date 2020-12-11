@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InGameManager : MonoBehaviour
 {
+    [SerializeField]
+    private Cinemachine.CinemachineVirtualCamera _cam;
+
     private int _score;
 
     [SerializeField]
@@ -38,6 +41,7 @@ public class InGameManager : MonoBehaviour
         {
             _curProgressValue = 0;
             _curLevel++;
+            _cam.m_Lens.OrthographicSize *= 1.1f;
 
             if(_curLevel >= _maxLevel)
             {
@@ -57,6 +61,11 @@ public class InGameManager : MonoBehaviour
     {
         _curTime += Time.deltaTime;
         InGameUIManager.instance.ui_InGameMainUI.SetTime(_curTime);
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            AddProgress(1);
+        }
 
     }
 }
