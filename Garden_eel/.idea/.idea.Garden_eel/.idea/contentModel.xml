@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\82108\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\82108\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Garden_eel.126680090.00" t="ExcludeRecursive" />
+    <e p="C:\Users\82108\AppData\Roaming\JetBrains\Rider2020.2\consoles\ide" t="IncludeRecursive" />
+    <e p="C:\Users\82108\WorkSpace\Garden-eel_Game\Garden_eel" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Bubble FX" t="Include">
+          <e p="BubbleFX.txt" t="Include" />
+          <e p="Demo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BubbleSceneSelect.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="EmotionObject.cs" t="Include" />
+          <e p="EmotionObjectSpawner.cs" t="Include" />
+          <e p="PlayerObject" t="Include">
+            <e p="GardenEelBody.cs" t="Include" />
+          </e>
+          <e p="Singleton" t="Include">
+            <e p="InGameManager.cs" t="Include" />
+            <e p="InGameUIManager.cs" t="Include" />
+            <e p="ObjectPoolManager.cs" t="Include" />
+            <e p="ObjectSpawnerManager.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="UI_InGameMainUI.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Garden_eel.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
