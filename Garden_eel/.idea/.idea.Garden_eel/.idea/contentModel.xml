@@ -37,6 +37,7 @@
           <e p="EmotionObjectSpawner.cs" t="Include" />
           <e p="PlayerObject" t="Include">
             <e p="GardenEelBody.cs" t="Include" />
+            <e p="GardenEelHead.cs" t="Include" />
           </e>
           <e p="Singleton" t="Include">
             <e p="InGameManager.cs" t="Include" />

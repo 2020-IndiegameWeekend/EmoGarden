@@ -8,11 +8,11 @@ public class GardenEelBody : MonoBehaviour
     public float spaceOfBody;
     public bool isHead;
     public Transform parent;
+
+    protected Vector3 _target;
+    protected Rigidbody2D _rigidbody2D;
     
-    private Vector3 _target;
-    private Rigidbody2D _rigidbody2D;
-    
-    void Start()
+    private void Start()
     {
         if (!isHead)
         {
@@ -24,13 +24,14 @@ public class GardenEelBody : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (isHead)
         {
             _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             var velocity = _rigidbody2D.velocity;
+            
             if (velocity.y < -1f)
             {
                 velocity.y = -1f;
@@ -48,7 +49,7 @@ public class GardenEelBody : MonoBehaviour
         }
     }
 
-    private bool MoveToTarget(Vector3 target)
+    protected virtual bool MoveToTarget(Vector3 target)
     {
         target.z = transform.position.z;
         Vector2 move = (Vector2) (target - transform.position);
