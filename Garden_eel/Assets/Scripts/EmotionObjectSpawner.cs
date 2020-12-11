@@ -8,7 +8,11 @@ public class EmotionObjectSpawner : MonoBehaviour
 
     [SerializeField]
     private int _maxEmotionObjectCount;
+    [SerializeField]
     private int _curEmotionObjectCount;
+
+    [SerializeField]
+    private int _startObjectCount = 0;
 
     [SerializeField]
     private int _spawnerIdx = 0;
@@ -26,6 +30,11 @@ public class EmotionObjectSpawner : MonoBehaviour
     {
         _boxCollider2d = GetComponent<BoxCollider2D>();
 
+        for (int i = 0; i < _startObjectCount; i++)
+        {
+            SpawnEmotionObject();
+        }
+
         StartCoroutine(SpawnCoroutine());
     }
 
@@ -36,6 +45,8 @@ public class EmotionObjectSpawner : MonoBehaviour
 
     private void SpawnEmotionObject()
     {
+        _curEmotionObjectCount++;
+
         Vector2 min = _boxCollider2d.bounds.min;
         Vector2 max = _boxCollider2d.bounds.max;
 
@@ -54,7 +65,7 @@ public class EmotionObjectSpawner : MonoBehaviour
 
         for (int i = 0; i < len; i++)
         {
-            if(randomIdx < spawnPercents[i])
+            if (randomIdx < spawnPercents[i])
             {
                 idx = i;
                 break;
@@ -99,13 +110,9 @@ public class EmotionObjectSpawner : MonoBehaviour
     {
         while (true)
         {
-            if(_curEmotionObjectCount <= _maxEmotionObjectCount)
-            {
-                _curEmotionObjectCount++;
-                SpawnEmotionObject();
-                yield return new WaitForSeconds(spawnTime);
-
-            }
+            SpawnEmotionObject();
+            yield return new WaitForSeconds(spawnTime);
+            yield return new WaitUntil(() => _curEmotionObjectCount <= _maxEmotionObjectCount - 1);
         }
     }
 }
