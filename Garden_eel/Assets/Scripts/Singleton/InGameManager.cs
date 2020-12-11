@@ -6,8 +6,15 @@ public class InGameManager : MonoBehaviour
 {
     private int _score;
 
-    private int _maxProgressValue;
-    private int _curProgressValue;
+    [SerializeField]
+    private int _maxProgressValue = 1;
+    [SerializeField]
+    private int _curProgressValue = 0;
+
+    [SerializeField]
+    private int _curLevel = 1;
+    [SerializeField]
+    private int _maxLevel = 5;
 
     private float _curTime;
 
@@ -20,7 +27,28 @@ public class InGameManager : MonoBehaviour
 
     public void AddProgress(int vlaue)
     {
+        if (_curLevel == _maxLevel)
+        {
+            return;
+        }
+
         _curProgressValue += vlaue;
+
+        if(_curProgressValue >= _maxProgressValue)
+        {
+            _curProgressValue = 0;
+            _curLevel++;
+
+            if(_curLevel >= _maxLevel)
+            {
+                _curLevel = _maxLevel;
+            }
+        }
+
+        if(_curLevel == _maxLevel)
+        {
+            _curProgressValue = 1;
+        }
 
         InGameUIManager.instance.ui_InGameMainUI.SetProgress((float)_curProgressValue/_maxProgressValue);
     }
