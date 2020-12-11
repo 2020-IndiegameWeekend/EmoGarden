@@ -9,15 +9,15 @@ public class InGameManager : MonoBehaviour
 
     private int _score;
 
-    [SerializeField]
-    private int _maxProgressValue = 1;
+    private int[] _maxProgressValues = new int[4] { 12, 60, 135, 285 };
+
     [SerializeField]
     private int _curProgressValue = 0;
 
     [SerializeField]
-    private int _curLevel = 1;
+    private int _curLevel = 0;
     [SerializeField]
-    private int _maxLevel = 5;
+    private int _maxLevel = 4;
 
     private float _curTime;
 
@@ -37,7 +37,7 @@ public class InGameManager : MonoBehaviour
 
         _curProgressValue += vlaue;
 
-        if(_curProgressValue >= _maxProgressValue)
+        if(_curProgressValue >= _maxProgressValues[_curLevel])
         {
             _curProgressValue = 0;
             _curLevel++;
@@ -54,7 +54,7 @@ public class InGameManager : MonoBehaviour
             _curProgressValue = 1;
         }
 
-        InGameUIManager.instance.ui_InGameMainUI.SetProgress((float)_curProgressValue/_maxProgressValue);
+        InGameUIManager.instance.ui_InGameMainUI.SetProgress((float)_curProgressValue/_maxProgressValues[_curLevel]);
     }
 
     private void Update()
