@@ -24,7 +24,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         
     }
 
-    public EmotionObject GetGoodEmotionObject(EmotionScale scale)
+    public EmotionObject GetBadEmotionObject(EmotionScale scale, int idx)
     {
         EmotionObject emotionObject = null;
 
@@ -37,7 +37,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if(len == 0)
                 {
-                    MakeGoodEmotionObject(1, EmotionScale.ONE);
+                    MakeBadEmotionObject(1, EmotionScale.ONE);
                 }
 
                 emotionObject = _stack_GoodOneEmotionObejct.Pop();
@@ -47,7 +47,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeGoodEmotionObject(1, EmotionScale.TWO);
+                    MakeBadEmotionObject(1, EmotionScale.TWO);
                 }
 
                 emotionObject = _stack_GoodOneEmotionObejct.Pop();
@@ -57,7 +57,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeGoodEmotionObject(1, EmotionScale.THREE);
+                    MakeBadEmotionObject(1, EmotionScale.THREE);
                 }
 
                 emotionObject = _stack_GoodOneEmotionObejct.Pop();
@@ -67,7 +67,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeGoodEmotionObject(1, EmotionScale.FOUR);
+                    MakeBadEmotionObject(1, EmotionScale.FOUR);
                 }
 
                 emotionObject = _stack_GoodOneEmotionObejct.Pop();
@@ -77,7 +77,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeGoodEmotionObject(1, EmotionScale.FIVE);
+                    MakeBadEmotionObject(1, EmotionScale.FIVE);
                 }
 
                 emotionObject = _stack_GoodOneEmotionObejct.Pop();
@@ -87,7 +87,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return emotionObject;
     }
 
-    public EmotionObject GetBadEmotionObject()
+    public EmotionObject GetGoodEmotionObject()
     {
         EmotionObject emotionObject = null;
 
@@ -95,7 +95,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
         if(len == 0)
         {
-            MakeBadEmotionObject(1);
+            MakeGoodEmotionObject(1);
         }
 
         emotionObject = _stack_BadEmotionObejct.Pop();
@@ -103,12 +103,13 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return emotionObject;
     }
 
-    private void MakeGoodEmotionObject(int count, EmotionScale scale)
+    private void MakeBadEmotionObject(int count, EmotionScale scale, int idx = 0)
     {
         for (int i = 0; i < count; i++)
         {
             EmotionObject newEmotionObject = Instantiate(emotionObjectPrefab);
-            newEmotionObject.emotionType = EmotionType.GOOD;
+            newEmotionObject.emotionType = EmotionType.BAD;
+            newEmotionObject.spawnerIdx = idx;
 
             switch (scale)
             {
@@ -139,12 +140,12 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         }
     }
 
-    private void MakeBadEmotionObject(int count)
+    private void MakeGoodEmotionObject(int count)
     {
         for (int i = 0; i < count; i++)
         {
             EmotionObject newEmotionObject = Instantiate(emotionObjectPrefab);
-            newEmotionObject.emotionType = EmotionType.BAD;
+            newEmotionObject.emotionType = EmotionType.GOOD;
             _stack_BadEmotionObejct.Push(newEmotionObject);
             newEmotionObject.transform.SetParent(badEmotionObjectParent.transform);
             newEmotionObject.gameObject.SetActive(false);
@@ -155,7 +156,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         switch (emotionObject.emotionType)
         {
-            case EmotionType.GOOD:
+            case EmotionType.BAD:
 
                 switch (emotionObject.emotionScale)
                 {
@@ -180,7 +181,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
                     emotionObject.gameObject.SetActive(false);
 
                 break;
-            case EmotionType.BAD:
+            case EmotionType.GOOD:
 
                 _stack_BadEmotionObejct.Push(emotionObject);
 
