@@ -13,10 +13,9 @@ public class UI_InGameMainUI : MonoBehaviour
     [SerializeField]
     private Text _text_Time;
 
-    public void SetTime(string time)
+    public void SetTime(float time)
     {
-        //TODO : time이 string이 아닐 수 있음
-        _text_Time.text = time;
+        _text_Time.text = string.Format("{0:F2}", time);
     }
 
     public void SetScore(int score)
