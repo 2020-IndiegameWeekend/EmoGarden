@@ -13,6 +13,7 @@ public class EmotionObjectSpawner : MonoBehaviour
     [SerializeField]
     private int _spawnerIdx = 0;
 
+    [SerializeField]
     private int[] spawnPercents = new int[6];
 
     [SerializeField]
