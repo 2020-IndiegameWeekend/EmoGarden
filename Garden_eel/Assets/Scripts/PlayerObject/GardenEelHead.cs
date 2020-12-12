@@ -23,6 +23,7 @@ public class GardenEelHead : GardenEelBody
     private const float StartLength = 5f;
     private const int StartCountOfBody = 7;
     private static readonly Color newColor = new Color32(100, 250, 220, 255);
+    private static readonly Vector2 midPosition = new Vector2(0, 6);
 
     private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.5f, 4.5f, 5f};
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
@@ -79,8 +80,15 @@ public class GardenEelHead : GardenEelBody
             velocity.y = -1f;
             _rigidbody2D.velocity = velocity;
         }
+
+        if (!CheckPlayerPosition())
+        {
+            var dir = midPosition - (Vector2) transform.position;
+            _rigidbody2D.AddForce(dir.normalized);
+            StartCoroutine(ResetVelocity());
+        }
         
-        if (CheckPlayerPosition() && (Input.GetMouseButton(0) || Input.touchCount > 0) && _canMove)
+        if ((Input.GetMouseButton(0) || Input.touchCount > 0) && _canMove)
         {
             MoveToTarget(_target);
         }
@@ -148,6 +156,12 @@ public class GardenEelHead : GardenEelBody
         yield return new WaitForSeconds(time);
         _eyeSpriteRenderer.sprite = idleEye;
         _canMove = true;
+    }
+
+    private IEnumerator ResetVelocity()
+    {
+        yield return new WaitForSeconds(.5f);
+        _rigidbody2D.velocity = Vector2.zero;
     }
 
     private bool CheckPlayerPosition()

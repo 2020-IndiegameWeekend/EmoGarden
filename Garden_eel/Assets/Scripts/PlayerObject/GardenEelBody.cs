@@ -51,7 +51,7 @@ public class GardenEelBody : MonoBehaviour
             var normalMovePos = move.normalized;
             var curPos = transform.position;
 
-            normalMovePos *= .8f;
+            normalMovePos *= .5f;
 
             Vector2 movePos = new Vector2(curPos.x + normalMovePos.x, curPos.y + normalMovePos.y);
             transform.DOMove(movePos, 0.1f, false);
