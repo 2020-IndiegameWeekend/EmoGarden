@@ -22,7 +22,7 @@ public class UI_ResultUI : MonoBehaviour
     [SerializeField]
     private float _stamp_Time;
 
-    private bool success = false;
+    private bool success = true;
     private float time = 0;
     private int score = 0;
 
@@ -61,6 +61,8 @@ public class UI_ResultUI : MonoBehaviour
             _image_Stamp.localScale = new Vector3(5, 5, 1);
             _image_Stamp.DOScale(Vector3.one, _stamp_Time).OnComplete(() =>
             {
+                SoundManager.instance.PlayEffectSound("Clear_Effect");
+
                 _image_Stamp.DOShakeAnchorPos(0.1f).OnComplete(() =>
                 {
                     stampEnd = true;

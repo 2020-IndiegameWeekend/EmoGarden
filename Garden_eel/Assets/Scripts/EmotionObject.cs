@@ -67,6 +67,7 @@ public class EmotionObject : MonoBehaviour
                                 break;
                         }
 
+                        SoundManager.instance.PlayEffectSound("Eat_Effect");
                         InGameManager.instance.AddProgress((int)emotionScale);
                         ObjectPoolManager.instance.ReturnEmotionObject(this);
                         break;
