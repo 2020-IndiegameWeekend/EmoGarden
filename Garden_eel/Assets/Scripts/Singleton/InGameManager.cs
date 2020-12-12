@@ -14,6 +14,7 @@ public class InGameManager : Singleton<InGameManager>
 
     [SerializeField]
     private int[] _maxProgressValues = new int[4] { 12, 60, 135, 285 };
+    private int[] _lvUpScore = new int[4] { 30, 50, 100, 200 };
 
     [SerializeField]
     private int _curProgressValue = 0;
@@ -24,6 +25,7 @@ public class InGameManager : Singleton<InGameManager>
     private int _maxLevel = 4;
 
     private float _curTime;
+    private float _scoreTime;
     [SerializeField]
     private float _cameraUpTime;
 
@@ -47,6 +49,7 @@ public class InGameManager : Singleton<InGameManager>
         {
             _curProgressValue = 0;
             _curLevel++;
+            AddScore(_lvUpScore[_curLevel - 1]);
             _head.LevelUp(_curLevel);
             StartCoroutine(CameraSizeUpCoroutine());
         }
@@ -71,9 +74,11 @@ public class InGameManager : Singleton<InGameManager>
         _curTime += Time.deltaTime;
         InGameUIManager.instance.ui_InGameMainUI.SetTime(_curTime);
 
-        if (Input.GetKeyDown(KeyCode.A))
+        _scoreTime += Time.deltaTime;
+        if (_scoreTime >= 60)
         {
-            AddProgress(1);
+            _scoreTime = 0;
+            AddScore(10);
         }
 
     }

@@ -48,6 +48,25 @@ public class EmotionObject : MonoBehaviour
                                 break;
                         }
 
+                        switch (emotionScale)
+                        {
+                            case EmotionScale.ONE:
+                                InGameManager.instance.AddScore(30);
+                                break;
+                            case EmotionScale.TWO:
+                                InGameManager.instance.AddScore(50);
+                                break;
+                            case EmotionScale.THREE:
+                                InGameManager.instance.AddScore(100);
+                                break;
+                            case EmotionScale.FOUR:
+                                InGameManager.instance.AddScore(200);
+                                break;
+                            case EmotionScale.FIVE:
+                                InGameManager.instance.AddScore(1000);
+                                break;
+                        }
+
                         InGameManager.instance.AddProgress((int)emotionScale);
                         ObjectPoolManager.instance.ReturnEmotionObject(this);
                         break;
