@@ -21,11 +21,11 @@ public class GardenEelHead : GardenEelBody
     private const float StartSize = .5f;
     private const float StartLength = 5f;
     private const int StartCountOfBody = 7;
-    private readonly Color newColor = new Color(100, 250, 220);
+    private readonly Color newColor = new Color32(100, 250, 220, 255);
 
-    private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.5f, 4.3f, 5f};
+    private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.5f, 4.5f, 5f};
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
-    private static readonly int[] ObjectCountArray = new[] {7, 15, 20, 20, 20};
+    private static readonly int[] ObjectCountArray = new[] {7, 15, 20, 21, 21};
 
     public void LevelUp(int level)
     {
@@ -48,7 +48,7 @@ public class GardenEelHead : GardenEelBody
         {
             foreach (var bodys in _bodyList)
             {
-                bodys.GetComponent<SpriteRenderer>().DOColor(newColor, 0.5f);
+                bodys.GetComponent<SpriteRenderer>().DOColor(newColor, 1f);
             }
         }
     }
