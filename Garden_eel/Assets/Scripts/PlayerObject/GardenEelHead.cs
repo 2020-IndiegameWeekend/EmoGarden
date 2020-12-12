@@ -17,25 +17,25 @@ public class GardenEelHead : GardenEelBody
     private SpriteRenderer _eyeSpriteRenderer;
     private List<GardenEelBody> _bodyList;
 
-    private const float StartSize = 1f;
-    private const float StartLength = 15f;
-    private const int StartCountOfBody = 10;
-
-    private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.3f, 4.3f, 5f};
+    private const float StartSize = .5f;
+    private const float StartLength = 5f;
+    private const int StartCountOfBody = 7;
+    
+    private static readonly float[] LengthArray = new[] {1f, 1.5f, 3.3f, 4.3f, 5f};
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
-    private static readonly int[] ObjectCountArray = new[] {10, 13, 16, 16, 16};
+    private static readonly int[] ObjectCountArray = new[] {7, 10, 20, 20, 20};
     
     public void LevelUp(int level)
     {
         int size = _bodyList.Count - 1;
         float before = _lengthOfBody;
         
-        _lengthOfBody = StartLength * LengthArray[level] * 5;
+        _lengthOfBody = StartLength * LengthArray[level];
 
         foreach (var bodys in _bodyList)
         {
             bodys.transform.localScale = Vector2.one * StartSize * SizeArray[level];
-            bodys.spaceOfBody = _lengthOfBody / (float) ObjectCountArray[level];
+            bodys.spaceOfBody = GetComponent<CircleCollider2D>().radius * SizeArray[level];
         }
         
         Debug.Log($"level : {level}, bodyCount : {_bodyList.Count}");
@@ -47,7 +47,7 @@ public class GardenEelHead : GardenEelBody
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _eyeSpriteRenderer = eye.GetComponent<SpriteRenderer>();
-        
+
         _bodyList = new List<GardenEelBody>();
         _bodyList.Add(this);
 
@@ -91,7 +91,7 @@ public class GardenEelHead : GardenEelBody
             var obj = Instantiate(body, new Vector3(0, -6.5f, 0), Quaternion.identity);
             var bodyComponent = obj.GetComponent<GardenEelBody>();
             bodyComponent.parent = _bodyList[size + i].transform;
-            bodyComponent.spaceOfBody = _lengthOfBody / (size + n) + SizeArray[_level];
+            bodyComponent.spaceOfBody = GetComponent<CircleCollider2D>().radius * SizeArray[_level];
             _tail = obj.transform;
             _tail.localScale *= sizeValue;
             _bodyList.Add(bodyComponent);
@@ -124,7 +124,6 @@ public class GardenEelHead : GardenEelBody
             transform.Translate(Vector2.up * Time.deltaTime * speed);
             return true;
         }
-
         StartCoroutine(StunPlayer(.5f));
 
         return false;
