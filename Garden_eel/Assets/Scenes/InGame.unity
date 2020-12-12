@@ -1123,7 +1123,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   _head: {fileID: 1855069107}
   _cam: {fileID: 931867669}
-  _maxProgressValues: 02000000020000000200000002000000
+  _maxProgressValues: 0c0000003c000000870000001d010000
   _curProgressValue: 0
   _curLevel: 0
   _maxLevel: 4

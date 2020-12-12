@@ -19,6 +19,9 @@ public class EmotionObject : MonoBehaviour
     public int spawnerIdx = 0;
 
     [SerializeField]
+    private bool _startcreated = false;
+
+    [SerializeField]
     private bool isFinal = false;
 
     private void OnEnable()
@@ -68,20 +71,23 @@ public class EmotionObject : MonoBehaviour
                 switch (emotionType)
                 {
                     case EmotionType.BAD:
-                        switch (spawnerIdx)
+                        if (!_startcreated)
                         {
-                            case 0:
-                                ObjectSpawnerManager.instance.firstEmotionSpawner.SubCurCount();
-                                break;
-                            case 1:
-                                ObjectSpawnerManager.instance.secondEmotionSpawner.SubCurCount();
-                                break;
-                            case 2:
-                                ObjectSpawnerManager.instance.thirdEmotionSpawner.SubCurCount();
-                                break;
-                            case 3:
-                                ObjectSpawnerManager.instance.fourthEmotionSpawner.SubCurCount();
-                                break;
+                            switch (spawnerIdx)
+                            {
+                                case 0:
+                                    ObjectSpawnerManager.instance.firstEmotionSpawner.SubCurCount();
+                                    break;
+                                case 1:
+                                    ObjectSpawnerManager.instance.secondEmotionSpawner.SubCurCount();
+                                    break;
+                                case 2:
+                                    ObjectSpawnerManager.instance.thirdEmotionSpawner.SubCurCount();
+                                    break;
+                                case 3:
+                                    ObjectSpawnerManager.instance.fourthEmotionSpawner.SubCurCount();
+                                    break;
+                            }
                         }
 
                         switch (emotionScale)
