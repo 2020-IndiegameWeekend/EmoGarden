@@ -126,7 +126,7 @@ public class UI_ResultUI : MonoBehaviour
             int sec = Mathf.FloorToInt(_min % 60F);
             int msec = Mathf.FloorToInt((_min * 100F) % 100F);
 
-            _text_Time.text = string.Format("<size=100>{0}</size>.", min + sec) + msec.ToString("00");
+            _text_Time.text = string.Format("<size=100>{0}</size>.", (min * 60) + sec) + msec.ToString("00");
             yield return null;
         }
 
@@ -136,6 +136,6 @@ public class UI_ResultUI : MonoBehaviour
         int time_sec = Mathf.FloorToInt(_min % 60F);
         int time_msec = Mathf.FloorToInt((_min * 100F) % 100F);
 
-        _text_Time.text = string.Format("<size=100>{0}</size>.", time_min + time_sec) + time_msec.ToString("00");
+        _text_Time.text = string.Format("<size=100>{0}</size>.", (time_min * 60) + time_sec) + time_msec.ToString("00");
     }
 }

@@ -19,7 +19,7 @@ public class UI_InGameMainUI : MonoBehaviour
         int sec = Mathf.FloorToInt(time % 60F);
         int msec = Mathf.FloorToInt((time * 100F) % 100F);
 
-        _text_Time.text = string.Format("<size=100>{0}</size>.", min + sec) + msec.ToString("00");
+        _text_Time.text = string.Format("<size=100>{0}</size>.", (min * 60) + sec) + msec.ToString("00");
     }
 
     public void SetScore(int score)
