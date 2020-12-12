@@ -36,11 +36,6 @@ public class GardenEelHead : GardenEelBody
 
     protected override void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelUp(++level);
-        }
-        
         _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         var velocity = _rigidbody2D.velocity;
