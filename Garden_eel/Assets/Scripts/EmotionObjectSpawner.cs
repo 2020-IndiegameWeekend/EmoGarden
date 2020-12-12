@@ -99,6 +99,11 @@ public class EmotionObjectSpawner : MonoBehaviour
         }
 
 
+        if((randomVec - InGameManager.instance.GetHeadPosition()).sqrMagnitude <= 1.5f)
+        {
+            randomVec += new Vector2(Random.Range(1.5f, 2f), Random.Range(1.5f, 2f));
+        }
+
         eo.transform.position = randomVec;
         eo.gameObject.SetActive(true);
     }

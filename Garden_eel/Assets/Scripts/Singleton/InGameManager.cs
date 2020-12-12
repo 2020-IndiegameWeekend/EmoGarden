@@ -65,6 +65,11 @@ public class InGameManager : Singleton<InGameManager>
         InGameUIManager.instance.ui_InGameMainUI.SetProgress(value);
     }
 
+    public Vector2 GetHeadPosition()
+    {
+        return _head.transform.position;
+    }
+
     public void GameOver(bool success)
     {
         InGameUIManager.instance.ui_ResultUI.GameOver(success, _curTime, _score);
