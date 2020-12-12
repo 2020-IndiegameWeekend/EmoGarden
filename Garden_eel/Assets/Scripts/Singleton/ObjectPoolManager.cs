@@ -152,7 +152,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         for (int i = 0; i < count; i++)
         {
-            EmotionObject newEmotionObject = Instantiate(badEmotionObjectPrefab);
+            EmotionObject newEmotionObject = Instantiate(goodEmotionObjectPrefab);
             newEmotionObject.emotionType = EmotionType.GOOD;
             _stack_GoodEmotionObejct.Push(newEmotionObject);
             newEmotionObject.transform.SetParent(goodEmotionObjectParent.transform);
