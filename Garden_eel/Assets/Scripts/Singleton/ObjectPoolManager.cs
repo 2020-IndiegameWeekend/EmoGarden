@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
-    public EmotionObject emotionObjectPrefab;
+    public EmotionObject badEmotionObjectPrefab;
+    public EmotionObject goodEmotionObjectPrefab;
 
-    private Stack<EmotionObject> _stack_BadEmotionObejct;
+    private Stack<EmotionObject> _stack_GoodEmotionObejct;
 
-    private Stack<EmotionObject> _stack_GoodOneEmotionObejct;
-    private Stack<EmotionObject> _stack_GoodTwoEmotionObejct;
-    private Stack<EmotionObject> _stack_GoodThreeEmotionObejct;
-    private Stack<EmotionObject> _stack_GoodFourEmotionObejct;
-    private Stack<EmotionObject> _stack_GoodFiveEmotionObejct;
+    private Stack<EmotionObject> _stack_BadOneEmotionObejct;
+    private Stack<EmotionObject> _stack_BadTwoEmotionObejct;
+    private Stack<EmotionObject> _stack_BadThreeEmotionObejct;
+    private Stack<EmotionObject> _stack_BadFourEmotionObejct;
+    private Stack<EmotionObject> _stack_BadFiveEmotionObejct;
 
     [SerializeField]
     private GameObject goodEmotionObjectParent;
@@ -23,12 +24,12 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         base.OnAwake();
 
-        _stack_BadEmotionObejct = new Stack<EmotionObject>();
-        _stack_GoodOneEmotionObejct = new Stack<EmotionObject>();
-        _stack_GoodTwoEmotionObejct = new Stack<EmotionObject>();
-        _stack_GoodThreeEmotionObejct = new Stack<EmotionObject>();
-        _stack_GoodFourEmotionObejct = new Stack<EmotionObject>();
-        _stack_GoodFiveEmotionObejct = new Stack<EmotionObject>();
+        _stack_GoodEmotionObejct = new Stack<EmotionObject>();
+        _stack_BadOneEmotionObejct = new Stack<EmotionObject>();
+        _stack_BadTwoEmotionObejct = new Stack<EmotionObject>();
+        _stack_BadThreeEmotionObejct = new Stack<EmotionObject>();
+        _stack_BadFourEmotionObejct = new Stack<EmotionObject>();
+        _stack_BadFiveEmotionObejct = new Stack<EmotionObject>();
     }
 
     public EmotionObject GetBadEmotionObject(EmotionScale scale, int idx)
@@ -40,54 +41,54 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         switch (scale)
         {
             case EmotionScale.ONE:
-                len = _stack_GoodOneEmotionObejct.Count;
+                len = _stack_BadOneEmotionObejct.Count;
 
                 if(len == 0)
                 {
                     MakeBadEmotionObject(1, EmotionScale.ONE);
                 }
 
-                emotionObject = _stack_GoodOneEmotionObejct.Pop();
+                emotionObject = _stack_BadOneEmotionObejct.Pop();
                 break;
             case EmotionScale.TWO:
-                len = _stack_GoodTwoEmotionObejct.Count;
+                len = _stack_BadTwoEmotionObejct.Count;
 
                 if (len == 0)
                 {
                     MakeBadEmotionObject(1, EmotionScale.TWO);
                 }
 
-                emotionObject = _stack_GoodTwoEmotionObejct.Pop();
+                emotionObject = _stack_BadTwoEmotionObejct.Pop();
                 break;
             case EmotionScale.THREE:
-                len = _stack_GoodThreeEmotionObejct.Count;
+                len = _stack_BadThreeEmotionObejct.Count;
 
                 if (len == 0)
                 {
                     MakeBadEmotionObject(1, EmotionScale.THREE);
                 }
 
-                emotionObject = _stack_GoodThreeEmotionObejct.Pop();
+                emotionObject = _stack_BadThreeEmotionObejct.Pop();
                 break;
             case EmotionScale.FOUR:
-                len = _stack_GoodFourEmotionObejct.Count;
+                len = _stack_BadFourEmotionObejct.Count;
 
                 if (len == 0)
                 {
                     MakeBadEmotionObject(1, EmotionScale.FOUR);
                 }
 
-                emotionObject = _stack_GoodFourEmotionObejct.Pop();
+                emotionObject = _stack_BadFourEmotionObejct.Pop();
                 break;
             case EmotionScale.FIVE:
-                len = _stack_GoodFiveEmotionObejct.Count;
+                len = _stack_BadFiveEmotionObejct.Count;
 
                 if (len == 0)
                 {
                     MakeBadEmotionObject(1, EmotionScale.FIVE);
                 }
 
-                emotionObject = _stack_GoodFiveEmotionObejct.Pop();
+                emotionObject = _stack_BadFiveEmotionObejct.Pop();
                 break;
         }
 
@@ -98,14 +99,14 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         EmotionObject emotionObject = null;
 
-        int len = _stack_BadEmotionObejct.Count;
+        int len = _stack_GoodEmotionObejct.Count;
 
         if(len == 0)
         {
             MakeGoodEmotionObject(1);
         }
 
-        emotionObject = _stack_BadEmotionObejct.Pop();
+        emotionObject = _stack_GoodEmotionObejct.Pop();
 
         return emotionObject;
     }
@@ -114,7 +115,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         for (int i = 0; i < count; i++)
         {
-            EmotionObject newEmotionObject = Instantiate(emotionObjectPrefab);
+            EmotionObject newEmotionObject = Instantiate(badEmotionObjectPrefab);
             newEmotionObject.emotionType = EmotionType.BAD;
             newEmotionObject.spawnerIdx = idx;
 
@@ -122,23 +123,23 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             {
                 case EmotionScale.ONE:
                     newEmotionObject.emotionScale = EmotionScale.ONE;
-                    _stack_GoodOneEmotionObejct.Push(newEmotionObject);
+                    _stack_BadOneEmotionObejct.Push(newEmotionObject);
                     break;
                 case EmotionScale.TWO:
                     newEmotionObject.emotionScale = EmotionScale.TWO;
-                    _stack_GoodTwoEmotionObejct.Push(newEmotionObject);
+                    _stack_BadTwoEmotionObejct.Push(newEmotionObject);
                     break;
                 case EmotionScale.THREE:
                     newEmotionObject.emotionScale = EmotionScale.THREE;
-                    _stack_GoodThreeEmotionObejct.Push(newEmotionObject);
+                    _stack_BadThreeEmotionObejct.Push(newEmotionObject);
                     break;
                 case EmotionScale.FOUR:
                     newEmotionObject.emotionScale = EmotionScale.FOUR;
-                    _stack_GoodFourEmotionObejct.Push(newEmotionObject);
+                    _stack_BadFourEmotionObejct.Push(newEmotionObject);
                     break;
                 case EmotionScale.FIVE:
                     newEmotionObject.emotionScale = EmotionScale.FIVE;
-                    _stack_GoodFiveEmotionObejct.Push(newEmotionObject);
+                    _stack_BadFiveEmotionObejct.Push(newEmotionObject);
                     break;
             }
 
@@ -151,9 +152,9 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         for (int i = 0; i < count; i++)
         {
-            EmotionObject newEmotionObject = Instantiate(emotionObjectPrefab);
+            EmotionObject newEmotionObject = Instantiate(badEmotionObjectPrefab);
             newEmotionObject.emotionType = EmotionType.GOOD;
-            _stack_BadEmotionObejct.Push(newEmotionObject);
+            _stack_GoodEmotionObejct.Push(newEmotionObject);
             newEmotionObject.transform.SetParent(badEmotionObjectParent.transform);
             newEmotionObject.gameObject.SetActive(false);
         }
@@ -168,19 +169,19 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
                 switch (emotionObject.emotionScale)
                 {
                     case EmotionScale.ONE:
-                        _stack_GoodOneEmotionObejct.Push(emotionObject);
+                        _stack_BadOneEmotionObejct.Push(emotionObject);
                         break;
                     case EmotionScale.TWO:
-                        _stack_GoodTwoEmotionObejct.Push(emotionObject);
+                        _stack_BadTwoEmotionObejct.Push(emotionObject);
                         break;
                     case EmotionScale.THREE:
-                        _stack_GoodThreeEmotionObejct.Push(emotionObject);
+                        _stack_BadThreeEmotionObejct.Push(emotionObject);
                         break;
                     case EmotionScale.FOUR:
-                        _stack_GoodFourEmotionObejct.Push(emotionObject);
+                        _stack_BadFourEmotionObejct.Push(emotionObject);
                         break;
                     case EmotionScale.FIVE:
-                        _stack_GoodFiveEmotionObejct.Push(emotionObject);
+                        _stack_BadFiveEmotionObejct.Push(emotionObject);
                         break;
                 }
 
@@ -190,7 +191,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
                 break;
             case EmotionType.GOOD:
 
-                _stack_BadEmotionObejct.Push(emotionObject);
+                _stack_GoodEmotionObejct.Push(emotionObject);
 
                 if (emotionObject.gameObject.activeSelf)
                     emotionObject.gameObject.SetActive(false);

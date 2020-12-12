@@ -23,8 +23,8 @@ public class UI_ResultUI : MonoBehaviour
     private float _stamp_Time;
 
     public bool success = false;
-    public float time = 120;
-    public int score = 10000;
+    public float time = 0;
+    public int score = 0;
 
     private void OnEnable()
     {
