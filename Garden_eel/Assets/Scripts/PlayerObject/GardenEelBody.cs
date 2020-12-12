@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GardenEelBody : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GardenEelBody : MonoBehaviour
     protected Vector3 _target;
     protected bool _isTail = false;
 
+    private float _time = 0;
+
     public void SetIsTail(bool isTail) => _isTail = isTail;
     
     protected virtual void Start()
@@ -21,11 +24,12 @@ public class GardenEelBody : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        _time += Time.deltaTime;
         if (_isTail)
         {
             return;
         }
-        
+
         _target = parent.position;
         MoveToTarget(_target);
     }
@@ -34,16 +38,19 @@ public class GardenEelBody : MonoBehaviour
     {
         target.z = transform.position.z;
         Vector2 move = (Vector2) (target - transform.position);
+        
         Vector2 space = (Vector2) (child.position - transform.position);
-         
+        
         if (move.sqrMagnitude > spaceOfBody && space.sqrMagnitude <= spaceOfBody)
         {
+            //transform.DOMove(target, 0.5f, false);
             transform.Translate(move.normalized * Time.deltaTime * speed);
             return true;
         }
 
-        else if (space.sqrMagnitude > spaceOfBody)
+        if (space.sqrMagnitude > spaceOfBody)
         {
+            //transform.DOMove(child.position, 0.5f, false);
             transform.Translate(space.normalized * Time.deltaTime * speed);
         }
 
