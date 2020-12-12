@@ -34,6 +34,8 @@ public class EmotionObject : MonoBehaviour
                     ObjectSpawnerManager.instance.fourthEmotionSpawner.SubCurCount();
                     break;
             }
+
+            ObjectPoolManager.instance.ReturnEmotionObject(this);
         }
     }
 }
