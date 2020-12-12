@@ -9,6 +9,7 @@ public class GardenEelHead : GardenEelBody
     public GameObject eye;
     public Sprite idleEye;
     public Sprite stunedEye;
+    public PolygonCollider2D polygon;
 
     private int _level = 0;
     private float _lengthOfBody;
@@ -21,7 +22,7 @@ public class GardenEelHead : GardenEelBody
     private const float StartSize = .5f;
     private const float StartLength = 5f;
     private const int StartCountOfBody = 7;
-    private readonly Color newColor = new Color32(100, 250, 220, 255);
+    private static readonly Color newColor = new Color32(100, 250, 220, 255);
 
     private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.5f, 4.5f, 5f};
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
@@ -79,7 +80,7 @@ public class GardenEelHead : GardenEelBody
             _rigidbody2D.velocity = velocity;
         }
         
-        if ((Input.GetMouseButton(0) || Input.touchCount > 0) && _canMove)
+        if (CheckPlayerPosition() && (Input.GetMouseButton(0) || Input.touchCount > 0) && _canMove)
         {
             MoveToTarget(_target);
         }
@@ -93,7 +94,6 @@ public class GardenEelHead : GardenEelBody
         }
         
         int size = _bodyList.Count - 1;
-        
         _bodyList[_bodyList.Count - 1].SetIsTail(false);
         
         for (int i = 0; i < n; i++)
@@ -139,13 +139,25 @@ public class GardenEelHead : GardenEelBody
         return false;
     }
 
-    IEnumerator StunPlayer(float time)
+    private IEnumerator StunPlayer(float time)
     {
+        SoundManager.instance.PlayEffectSound("Stun_Effect");
         _canMove = false;
         _eyeSpriteRenderer.sprite = stunedEye;
         Debug.Log($"{time}초 동안 스턴걸림");
         yield return new WaitForSeconds(time);
         _eyeSpriteRenderer.sprite = idleEye;
         _canMove = true;
+    }
+
+    private bool CheckPlayerPosition()
+    {
+        float x = polygon.GetPath(0)[0].x;
+        float maxY = polygon.GetPath(0)[0].y;
+        float minY = polygon.GetPath(0)[3].y;
+
+        var pos = transform.position;
+
+        return (Mathf.Abs(pos.x) < x) && (pos.y < maxY && pos.y > minY);
     }
 }
