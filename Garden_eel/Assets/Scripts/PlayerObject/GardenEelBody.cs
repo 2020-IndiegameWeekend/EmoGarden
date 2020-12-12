@@ -12,7 +12,7 @@ public class GardenEelBody : MonoBehaviour
     protected Vector3 _target;
     protected Rigidbody2D _rigidbody2D;
     
-    private void Start()
+    protected virtual void Start()
     {
         if (!isHead)
         {
