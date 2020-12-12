@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/OutGame.unity
     guid: a6b4366b6fa07894c8e4e39941f6bf99
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/InGame.unity
     guid: dacb80c8fde41a14e86e82f964faa34f
   - enabled: 0
