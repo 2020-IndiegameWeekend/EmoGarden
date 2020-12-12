@@ -132,7 +132,16 @@ public class GardenEelHead : GardenEelBody
         if (magnitude < _lengthOfBody)
         {
             Vector2 dir = target - transform.position;
-            
+            var scale = transform.localScale;
+            if (dir.x < -1)
+            {
+                scale.x = -.5f * SizeArray[_level];
+            }
+            else
+            {
+                scale.x = .5f * SizeArray[_level];
+            }
+            transform.localScale = scale;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             
