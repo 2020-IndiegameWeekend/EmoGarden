@@ -26,6 +26,8 @@ public class InGameManager : Singleton<InGameManager>
 
     private float _curTime;
     private float _scoreTime;
+    private float lastESC = -1000f;
+    
     [SerializeField]
     private float _cameraUpTime;
 
@@ -87,6 +89,19 @@ public class InGameManager : Singleton<InGameManager>
             AddScore(10);
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_curTime - lastESC < 0.5f)
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
+            }
+
+            lastESC = _curTime;
+        }
     }
 
     private IEnumerator CameraSizeUpCoroutine()
