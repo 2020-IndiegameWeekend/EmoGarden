@@ -143,7 +143,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
                     break;
             }
 
-            newEmotionObject.transform.SetParent(goodEmotionObjectParent.transform);
+            newEmotionObject.transform.SetParent(badEmotionObjectParent.transform);
             newEmotionObject.gameObject.SetActive(false);
         }
     }
@@ -155,7 +155,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             EmotionObject newEmotionObject = Instantiate(badEmotionObjectPrefab);
             newEmotionObject.emotionType = EmotionType.GOOD;
             _stack_GoodEmotionObejct.Push(newEmotionObject);
-            newEmotionObject.transform.SetParent(badEmotionObjectParent.transform);
+            newEmotionObject.transform.SetParent(goodEmotionObjectParent.transform);
             newEmotionObject.gameObject.SetActive(false);
         }
     }
