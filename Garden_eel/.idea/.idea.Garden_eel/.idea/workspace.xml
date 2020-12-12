@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11cc73b6-02d6-4951-8d7b-058aaae66eba" name="Default Changelist" comment="" />
+    <list default="true" id="11cc73b6-02d6-4951-8d7b-058aaae66eba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Garden_eel/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Garden_eel/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Body.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Body.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Head.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Head.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGameTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGameTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGameTest.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGameTest.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidLogcatSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidLogcatSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +39,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
