@@ -104,9 +104,21 @@ public class GardenEelHead : GardenEelBody
 
     protected override bool MoveToTarget(Vector3 target)
     {
-        if ((_tail.position - transform.position).magnitude < _lengthOfBody)
+        Vector2 tailDir = _tail.position - transform.position;
+        
+        if (tailDir.magnitude < _lengthOfBody)
         {
-            return base.MoveToTarget(target);
+            Vector2 dir = target - transform.position;
+            
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            Debug.Log($"before rotation : {rotation}");
+            var rotationVector = rotation.eulerAngles + new Vector3(0, 0, -90);
+            transform.rotation = Quaternion.Euler(rotationVector);
+            
+            transform.Translate(Vector2.up * Time.deltaTime * speed);
+            return true;
         }
 
         return false;

@@ -3,8 +3,8 @@
     "m_SelectedPackage": {
         "deviceId": "R3CN102Z2QL",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 1483,
-        "exited": true
+        "processId": 29219,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
@@ -19,6 +19,12 @@
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 1483,
             "exited": true
+        },
+        {
+            "deviceId": "R3CN102Z2QL",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 29219,
+            "exited": false
         }
     ],
     "m_Tags": {

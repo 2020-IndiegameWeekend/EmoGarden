@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KimSM_Develop.unity
     guid: f6ad2668aa87e594d9d7807a6086633d
+  - enabled: 1
+    path: Assets/Scenes/InGame_Test.unity
+    guid: ef6cf367b3a9e7d4896f7af3f92530d4
   m_configObjects: {}
