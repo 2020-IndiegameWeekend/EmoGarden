@@ -53,6 +53,8 @@ public class GardenEelHead : GardenEelBody
                 bodys.GetComponent<SpriteRenderer>().DOColor(newColor, 1f);
             }
         }
+
+        _level = level;
     }
     
     protected override void Start()
@@ -147,7 +149,8 @@ public class GardenEelHead : GardenEelBody
             
             var rotationVector = rotation.eulerAngles + new Vector3(0, 0, -90);
             transform.rotation = Quaternion.Euler(rotationVector);
-            
+
+            _rigidbody2D.velocity = Vector2.zero;
             transform.Translate(Vector2.up * Time.deltaTime * speed);
             return true;
         }
