@@ -27,7 +27,26 @@ public class EmotionObject : MonoBehaviour
         {
             case EmotionType.BAD:
                 if (!isFinal)
-                    transform.localScale = new Vector3(badScale[(int)emotionScale], badScale[(int)emotionScale], 1);
+                {
+                    switch (emotionScale)
+                    {
+                        case EmotionScale.ONE:
+                            transform.localScale = new Vector3(badScale[0], badScale[0], 1);
+                            break;
+                        case EmotionScale.TWO:
+                            transform.localScale = new Vector3(badScale[1], badScale[1], 1);
+                            break;
+                        case EmotionScale.THREE:
+                            transform.localScale = new Vector3(badScale[2], badScale[2], 1);
+                            break;
+                        case EmotionScale.FOUR:
+                            transform.localScale = new Vector3(badScale[3], badScale[3], 1);
+                            break;
+                        case EmotionScale.FIVE:
+                            transform.localScale = new Vector3(badScale[4], badScale[4], 1);
+                            break;
+                    }
+                }
                 break;
             case EmotionType.GOOD:
                 transform.localScale = new Vector3(goodScale, goodScale, 1);
