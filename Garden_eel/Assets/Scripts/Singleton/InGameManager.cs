@@ -57,6 +57,11 @@ public class InGameManager : Singleton<InGameManager>
         InGameUIManager.instance.ui_InGameMainUI.SetProgress(value);
     }
 
+    public void GameOver(bool success)
+    {
+        InGameUIManager.instance.ui_ResultUI.GameOver(success, _curTime, _score);
+    }
+
     private void Update()
     {
         _curTime += Time.deltaTime;

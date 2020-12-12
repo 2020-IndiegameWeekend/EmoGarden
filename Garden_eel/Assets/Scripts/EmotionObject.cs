@@ -15,28 +15,47 @@ public class EmotionObject : MonoBehaviour
 
     public int spawnerIdx = 0;
 
+    [SerializeField]
+    private bool isFinal = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            switch (spawnerIdx)
+            if (isFinal)
             {
-                case 0:
-                    ObjectSpawnerManager.instance.firstEmotionSpawner.SubCurCount();
-                    break;
-                case 1:
-                    ObjectSpawnerManager.instance.secondEmotionSpawner.SubCurCount();
-                    break;
-                case 2:
-                    ObjectSpawnerManager.instance.thirdEmotionSpawner.SubCurCount();
-                    break;
-                case 3:
-                    ObjectSpawnerManager.instance.fourthEmotionSpawner.SubCurCount();
-                    break;
+                InGameManager.instance.GameOver(true);
             }
 
-            InGameManager.instance.AddProgress((int)emotionScale);
-            ObjectPoolManager.instance.ReturnEmotionObject(this);
+            else
+            {
+                switch (emotionType)
+                {
+                    case EmotionType.BAD:
+                        switch (spawnerIdx)
+                        {
+                            case 0:
+                                ObjectSpawnerManager.instance.firstEmotionSpawner.SubCurCount();
+                                break;
+                            case 1:
+                                ObjectSpawnerManager.instance.secondEmotionSpawner.SubCurCount();
+                                break;
+                            case 2:
+                                ObjectSpawnerManager.instance.thirdEmotionSpawner.SubCurCount();
+                                break;
+                            case 3:
+                                ObjectSpawnerManager.instance.fourthEmotionSpawner.SubCurCount();
+                                break;
+                        }
+
+                        InGameManager.instance.AddProgress((int)emotionScale);
+                        ObjectPoolManager.instance.ReturnEmotionObject(this);
+                        break;
+                    case EmotionType.GOOD:
+                        InGameManager.instance.GameOver(false);
+                        break;
+                }
+            }
         }
     }
 }

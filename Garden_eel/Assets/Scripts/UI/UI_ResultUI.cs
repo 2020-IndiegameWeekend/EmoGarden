@@ -22,9 +22,18 @@ public class UI_ResultUI : MonoBehaviour
     [SerializeField]
     private float _stamp_Time;
 
-    public bool success = false;
-    public float time = 0;
-    public int score = 0;
+    private bool success = false;
+    private float time = 0;
+    private int score = 0;
+
+    public void GameOver(bool isSuccess, float overTime, int overScore)
+    {
+        success = isSuccess;
+        time = overTime;
+        overScore = score;
+
+        gameObject.SetActive(true);
+    }
 
     private void OnEnable()
     {
