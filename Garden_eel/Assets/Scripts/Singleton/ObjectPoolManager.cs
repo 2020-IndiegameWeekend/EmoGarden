@@ -45,7 +45,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if(len == 0)
                 {
-                    MakeBadEmotionObject(1, EmotionScale.ONE);
+                    MakeBadEmotionObject(1, EmotionScale.ONE, idx);
                 }
 
                 emotionObject = _stack_BadOneEmotionObejct.Pop();
@@ -55,7 +55,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeBadEmotionObject(1, EmotionScale.TWO);
+                    MakeBadEmotionObject(1, EmotionScale.TWO, idx);
                 }
 
                 emotionObject = _stack_BadTwoEmotionObejct.Pop();
@@ -65,7 +65,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeBadEmotionObject(1, EmotionScale.THREE);
+                    MakeBadEmotionObject(1, EmotionScale.THREE, idx);
                 }
 
                 emotionObject = _stack_BadThreeEmotionObejct.Pop();
@@ -75,7 +75,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeBadEmotionObject(1, EmotionScale.FOUR);
+                    MakeBadEmotionObject(1, EmotionScale.FOUR, idx);
                 }
 
                 emotionObject = _stack_BadFourEmotionObejct.Pop();
@@ -85,7 +85,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 
                 if (len == 0)
                 {
-                    MakeBadEmotionObject(1, EmotionScale.FIVE);
+                    MakeBadEmotionObject(1, EmotionScale.FIVE, idx);
                 }
 
                 emotionObject = _stack_BadFiveEmotionObejct.Pop();
