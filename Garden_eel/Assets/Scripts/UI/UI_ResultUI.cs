@@ -109,7 +109,7 @@ public class UI_ResultUI : MonoBehaviour
         }
 
         _min = _max;
-        _text_Score.text = ((int)_min).ToString();
+        _text_Score.text = ((int)_min).ToString("00000");
     }
 
     private IEnumerator CountingTimeCoroutine(float _min, float _max, float _time)
