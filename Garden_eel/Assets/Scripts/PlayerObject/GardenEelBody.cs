@@ -34,12 +34,17 @@ public class GardenEelBody : MonoBehaviour
     {
         target.z = transform.position.z;
         Vector2 move = (Vector2) (target - transform.position);
-        Vector2 space = (Vector2) (transform.position - child.position);
+        Vector2 space = (Vector2) (child.position - transform.position);
             
-        if (move.magnitude > spaceOfBody && space.magnitude < spaceOfBody)
+        if (move.sqrMagnitude > spaceOfBody && space.sqrMagnitude <= spaceOfBody)
         {
             transform.Translate(move.normalized * Time.deltaTime * speed);
             return true;
+        }
+
+        if (space.sqrMagnitude > spaceOfBody)
+        {
+            transform.Translate(space.normalized * Time.deltaTime * speed);
         }
 
         return false;
