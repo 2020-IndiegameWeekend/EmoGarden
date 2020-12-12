@@ -62,7 +62,7 @@ public class EmotionObjectSpawner : MonoBehaviour
 
         for (int i = 0; i < len; i++)
         {
-            if (randomIdx < spawnPercents[i])
+            if (randomIdx < spawnPercents[i] && spawnPercents[i] != 0)
             {
                 idx = i;
                 break;
