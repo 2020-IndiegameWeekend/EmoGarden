@@ -9,6 +9,9 @@ public enum EmotionScale { ONE = 1, TWO = 3, THREE = 5, FOUR = 10, FIVE = 20 }
 
 public class EmotionObject : MonoBehaviour
 {
+    public float[] badScale = new float[5] { 0.3f, 0.5f, 0.7f, 0.9f, 1.1f };
+    public float goodScale = 1f;
+
     public EmotionType emotionType = EmotionType.BAD;
 
     public EmotionScale emotionScale = EmotionScale.ONE;
@@ -17,6 +20,20 @@ public class EmotionObject : MonoBehaviour
 
     [SerializeField]
     private bool isFinal = false;
+
+    private void OnEnable()
+    {
+        switch (emotionType)
+        {
+            case EmotionType.BAD:
+                if (!isFinal)
+                    transform.localScale = new Vector3(badScale[(int)emotionScale], badScale[(int)emotionScale], 1);
+                break;
+            case EmotionType.GOOD:
+                transform.localScale = new Vector3(goodScale, goodScale, 1);
+                break;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

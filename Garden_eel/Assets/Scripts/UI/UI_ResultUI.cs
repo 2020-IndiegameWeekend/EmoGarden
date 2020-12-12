@@ -122,18 +122,20 @@ public class UI_ResultUI : MonoBehaviour
         {
             _min += offset * Time.deltaTime;
 
-            float sec = Mathf.FloorToInt(_min % 60F);
-            float msec = Mathf.FloorToInt((_min * 100F) % 100F);
+            int min = Mathf.FloorToInt(time / 60F);
+            int sec = Mathf.FloorToInt(_min % 60F);
+            int msec = Mathf.FloorToInt((_min * 100F) % 100F);
 
-            _text_Time.text = string.Format("<size=100>{0}</size>.", sec) + msec.ToString("00");
+            _text_Time.text = string.Format("<size=100>{0}</size>.", min + sec) + msec.ToString("00");
             yield return null;
         }
 
         _min = _max;
 
-        float time_min = Mathf.FloorToInt(_min % 60F);
-        float time_sec = Mathf.FloorToInt((_min * 100F) % 100F);
+        int time_min = Mathf.FloorToInt(time / 60F);
+        int time_sec = Mathf.FloorToInt(_min % 60F);
+        int time_msec = Mathf.FloorToInt((_min * 100F) % 100F);
 
-        _text_Time.text = string.Format("<size=100>{0}</size>.", time_min) + time_sec.ToString("00");
+        _text_Time.text = string.Format("<size=100>{0}</size>.", time_min + time_sec) + time_msec.ToString("00");
     }
 }
