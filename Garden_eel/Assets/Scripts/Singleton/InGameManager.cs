@@ -5,6 +5,9 @@ using UnityEngine;
 public class InGameManager : Singleton<InGameManager>
 {
     [SerializeField]
+    private GardenEelHead _head;
+    
+    [SerializeField]
     private Cinemachine.CinemachineVirtualCamera _cam;
 
     private int _score;
@@ -44,6 +47,7 @@ public class InGameManager : Singleton<InGameManager>
         {
             _curProgressValue = 0;
             _curLevel++;
+            _head.LevelUp(_curLevel);
             StartCoroutine(CameraSizeUpCoroutine());
         }
 
