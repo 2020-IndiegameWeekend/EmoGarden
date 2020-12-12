@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11cc73b6-02d6-4951-8d7b-058aaae66eba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +38,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/Head.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" />
       </list>
     </option>
   </component>
