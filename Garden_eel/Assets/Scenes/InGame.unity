@@ -537,10 +537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bfce6cea17714b958957d70d878cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEmotionObjectCount: 0
+  _maxEmotionObjectCount: 10
   _curEmotionObjectCount: 0
   _startObjectCount: 0
-  _spawnerIdx: 0
+  _spawnerIdx: 1
   spawnPercents: 020000000500000001000000000000000000000002000000
   spawnTime: 3
 --- !u!61 &337857282
@@ -693,7 +693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c390a59a29be2c74284b140fdeeae9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
+  dontDestroyOnLoad: 0
+  _cam: {fileID: 931867669}
   _maxProgressValues: 02000000020000000200000002000000
   _curProgressValue: 0
   _curLevel: 0
@@ -932,10 +933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bfce6cea17714b958957d70d878cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEmotionObjectCount: 0
+  _maxEmotionObjectCount: 10
   _curEmotionObjectCount: 0
   _startObjectCount: 0
-  _spawnerIdx: 0
+  _spawnerIdx: 3
   spawnPercents: 000000000100000002000000040000000100000002000000
   spawnTime: 3
 --- !u!61 &633805810
@@ -1378,10 +1379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bfce6cea17714b958957d70d878cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEmotionObjectCount: 0
+  _maxEmotionObjectCount: 10
   _curEmotionObjectCount: 0
   _startObjectCount: 0
-  _spawnerIdx: 0
+  _spawnerIdx: 2
   spawnPercents: 000000000200000005000000010000000000000002000000
   spawnTime: 3
 --- !u!61 &876511843
@@ -2202,7 +2203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bfce6cea17714b958957d70d878cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEmotionObjectCount: 0
+  _maxEmotionObjectCount: 10
   _curEmotionObjectCount: 0
   _startObjectCount: 0
   _spawnerIdx: 0

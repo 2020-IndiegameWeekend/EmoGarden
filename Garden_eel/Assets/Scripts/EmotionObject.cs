@@ -35,6 +35,7 @@ public class EmotionObject : MonoBehaviour
                     break;
             }
 
+            InGameManager.instance.AddProgress((int)emotionScale);
             ObjectPoolManager.instance.ReturnEmotionObject(this);
         }
     }

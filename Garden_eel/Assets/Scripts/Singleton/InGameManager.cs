@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameManager : MonoBehaviour
+public class InGameManager : Singleton<InGameManager>
 {
     [SerializeField]
     private Cinemachine.CinemachineVirtualCamera _cam;
