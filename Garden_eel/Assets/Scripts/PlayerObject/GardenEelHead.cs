@@ -25,6 +25,24 @@ public class GardenEelHead : GardenEelBody
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
     private static readonly int[] ObjectCountArray = new[] {10, 13, 16, 16, 16};
     
+    public void LevelUp(int level)
+    {
+        int size = _bodyList.Count - 1;
+        float before = _lengthOfBody;
+        
+        _lengthOfBody = StartLength * LengthArray[level] * 5;
+
+        foreach (var bodys in _bodyList)
+        {
+            bodys.transform.localScale = Vector2.one * StartSize * SizeArray[level];
+            bodys.spaceOfBody = _lengthOfBody / (float) ObjectCountArray[level];
+        }
+        
+        Debug.Log($"level : {level}, bodyCount : {_bodyList.Count}");
+        
+        AddBody(ObjectCountArray[level] - _bodyList.Count - 1, SizeArray[level]);
+    }
+    
     protected override void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -55,24 +73,6 @@ public class GardenEelHead : GardenEelBody
         {
             MoveToTarget(_target);
         }
-    }
-
-    private void LevelUp(int level)
-    {
-        int size = _bodyList.Count - 1;
-        float before = _lengthOfBody;
-        
-        _lengthOfBody = StartLength * LengthArray[level] * 5;
-
-        foreach (var bodys in _bodyList)
-        {
-            bodys.transform.localScale = Vector2.one * StartSize * SizeArray[level];
-            bodys.spaceOfBody = _lengthOfBody / (float) ObjectCountArray[level];
-        }
-        
-        Debug.Log($"level : {level}, bodyCount : {_bodyList.Count}");
-        
-        AddBody(ObjectCountArray[level] - _bodyList.Count - 1, SizeArray[level]);
     }
 
     private void AddBody(int n, float sizeValue)
