@@ -59,11 +59,13 @@
             <e p="InGameUIManager.cs" t="Include" />
             <e p="ObjectPoolManager.cs" t="Include" />
             <e p="ObjectSpawnerManager.cs" t="Include" />
+            <e p="OutGameUIManager.cs" t="Include" />
             <e p="Singleton.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="UI_Fade.cs" t="Include" />
             <e p="UI_InGameMainUI.cs" t="Include" />
+            <e p="UI_OutGameMainUI.cs" t="Include" />
             <e p="UI_ResultUI.cs" t="Include" />
           </e>
         </e>

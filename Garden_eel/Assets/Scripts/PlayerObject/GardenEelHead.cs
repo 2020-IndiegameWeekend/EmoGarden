@@ -5,13 +5,16 @@ using UnityEngine;
 public class GardenEelHead : GardenEelBody
 {
     public GameObject body;
+    public GameObject eye;
+    public Sprite idleEye;
+    public Sprite stunedEye;
 
     private int _level = 0;
     private float _lengthOfBody;
     private bool _canMove = true;
     private Transform _tail;
     private Rigidbody2D _rigidbody2D;
-    private LineRenderer _lineRenderer;
+    private SpriteRenderer _eyeSpriteRenderer;
     private List<GardenEelBody> _bodyList;
 
     private const float StartSize = 1f;
@@ -25,7 +28,7 @@ public class GardenEelHead : GardenEelBody
     protected override void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _lineRenderer = GetComponent<LineRenderer>();
+        _eyeSpriteRenderer = eye.GetComponent<SpriteRenderer>();
         
         _bodyList = new List<GardenEelBody>();
         _bodyList.Add(this);
@@ -52,15 +55,6 @@ public class GardenEelHead : GardenEelBody
         {
             MoveToTarget(_target);
         }
-        
-        Vector3[] vector3s = new Vector3[_bodyList.Count];
-
-        vector3s[0] = transform.position;
-        for (int i = 1; i < vector3s.Length; i++)
-        {
-            vector3s[i] = _bodyList[i].transform.position + Vector3.back;
-        }
-        _lineRenderer.SetPositions(vector3s);
     }
 
     private void LevelUp(int level)
@@ -109,8 +103,6 @@ public class GardenEelHead : GardenEelBody
         }
 
         _bodyList[_bodyList.Count - 1].SetIsTail(true);
-
-        _lineRenderer.positionCount = _bodyList.Count;
     }
 
     protected override bool MoveToTarget(Vector3 target)
@@ -141,8 +133,10 @@ public class GardenEelHead : GardenEelBody
     IEnumerator StunPlayer(float time)
     {
         _canMove = false;
-        Debug.Log("스턴걸림");
+        _eyeSpriteRenderer.sprite = stunedEye;
+        Debug.Log($"{time}초 동안 스턴걸림");
         yield return new WaitForSeconds(time);
+        _eyeSpriteRenderer.sprite = idleEye;
         _canMove = true;
     }
 }
