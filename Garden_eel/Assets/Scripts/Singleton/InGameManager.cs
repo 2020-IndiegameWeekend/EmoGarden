@@ -13,8 +13,8 @@ public class InGameManager : Singleton<InGameManager>
     private int _score;
 
     [SerializeField]
-    private int[] _maxProgressValues = new int[4] { 12, 60, 135, 285 };
-    private int[] _lvUpScore = new int[4] { 500, 2000, 10000, 30000 };
+    private int[] _maxProgressValues = new int[4] { 12, 60, 145, 300 };
+    private int[] _lvUpScore = new int[4] { 500, 3000, 12000, 30000 };
 
     [SerializeField]
     private int _curProgressValue = 0;
