@@ -15,10 +15,10 @@ public class UI_InGameMainUI : MonoBehaviour
 
     public void SetTime(float time)
     {
-        float min = Mathf.FloorToInt(time / 60f);
-        float sec = Mathf.FloorToInt(time % 60f);
+        float sec = Mathf.FloorToInt(time % 60F);
+        float msec = Mathf.FloorToInt((time * 100F) % 100F);
 
-        _text_Time.text = string.Format("<size=100>{0}</size>.", min) + sec.ToString("00");
+        _text_Time.text = string.Format("<size=100>{0}</size>.", sec) + msec.ToString("00");
     }
 
     public void SetScore(int score)

@@ -35,7 +35,7 @@ public class UI_ResultUI : MonoBehaviour
     {
         success = isSuccess;
         time = overTime;
-        overScore = score;
+        score = overScore;
 
         gameObject.SetActive(true);
     }
@@ -122,17 +122,17 @@ public class UI_ResultUI : MonoBehaviour
         {
             _min += offset * Time.deltaTime;
 
-            float min = Mathf.FloorToInt(_min / 60f);
-            float sec = Mathf.FloorToInt(_min % 60f);
+            float sec = Mathf.FloorToInt(_min % 60F);
+            float msec = Mathf.FloorToInt((_min * 100F) % 100F);
 
-            _text_Time.text = string.Format("<size=100>{0}</size>.", min) + sec.ToString("00");
+            _text_Time.text = string.Format("<size=100>{0}</size>.", sec) + msec.ToString("00");
             yield return null;
         }
 
         _min = _max;
 
-        float time_min = Mathf.FloorToInt(_max / 60f);
-        float time_sec = Mathf.FloorToInt(_max % 60f);
+        float time_min = Mathf.FloorToInt(_min % 60F);
+        float time_sec = Mathf.FloorToInt((_min * 100F) % 100F);
 
         _text_Time.text = string.Format("<size=100>{0}</size>.", time_min) + time_sec.ToString("00");
     }
