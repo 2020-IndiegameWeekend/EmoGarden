@@ -21,6 +21,8 @@ public class InGameManager : MonoBehaviour
     private int _maxLevel = 4;
 
     private float _curTime;
+    [SerializeField]
+    private float _cameraUpTime;
 
     public void AddScore(int score)
     {
@@ -42,20 +44,17 @@ public class InGameManager : MonoBehaviour
         {
             _curProgressValue = 0;
             _curLevel++;
-            _cam.m_Lens.OrthographicSize *= 1.1f;
-
-            if(_curLevel >= _maxLevel)
-            {
-                _curLevel = _maxLevel;
-            }
+            StartCoroutine(CameraSizeUpCoroutine());
         }
 
-        if(_curLevel == _maxLevel)
-        {
-            _curProgressValue = 1;
-        }
+        float value = 0;
 
-        InGameUIManager.instance.ui_InGameMainUI.SetProgress((float)_curProgressValue/_maxProgressValues[_curLevel]);
+        if(_curLevel < _maxLevel)
+            value = (float)_curProgressValue / _maxProgressValues[_curLevel];
+        else
+            value = 1;
+
+        InGameUIManager.instance.ui_InGameMainUI.SetProgress(value);
     }
 
     private void Update()
@@ -68,5 +67,24 @@ public class InGameManager : MonoBehaviour
             AddProgress(1);
         }
 
+    }
+
+    private IEnumerator CameraSizeUpCoroutine()
+    {
+        float minsize = _cam.m_Lens.OrthographicSize;
+        float maxsize = _cam.m_Lens.OrthographicSize * 1.1f;
+
+        float offset = (maxsize - minsize) / _cameraUpTime;
+        float time = 0;
+
+        while(time <= _cameraUpTime)
+        {
+            time += Time.deltaTime;
+            minsize += offset * Time.deltaTime;
+            _cam.m_Lens.OrthographicSize = minsize;
+            yield return null;
+        }
+
+        _cam.m_Lens.OrthographicSize = maxsize;
     }
 }

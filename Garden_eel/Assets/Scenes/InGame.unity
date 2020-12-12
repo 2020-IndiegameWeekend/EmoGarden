@@ -422,10 +422,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 1211342784}
-  _maxProgressValues: 0c0000003c000000870000001d010000
+  _maxProgressValues: 02000000020000000200000002000000
   _curProgressValue: 0
   _curLevel: 0
   _maxLevel: 4
+  _cameraUpTime: 1
 --- !u!4 &478911397
 Transform:
   m_ObjectHideFlags: 0
