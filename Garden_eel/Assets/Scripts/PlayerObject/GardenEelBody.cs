@@ -25,13 +25,18 @@ public class GardenEelBody : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         _time += Time.deltaTime;
+        
         if (_isTail)
         {
             return;
         }
 
-        _target = parent.position;
-        MoveToTarget(_target);
+        if (_time > .1f)
+        {
+            _time = 0;
+            _target = parent.position;
+            MoveToTarget(_target);
+        }
     }
 
     protected virtual bool MoveToTarget(Vector3 target)
@@ -43,14 +48,29 @@ public class GardenEelBody : MonoBehaviour
         
         if (move.magnitude > spaceOfBody && space.magnitude <= spaceOfBody)
         {
-            //transform.DOMove(target, 0.5f, false);
-            transform.Translate(move.normalized * Time.deltaTime * speed);
+            var normalMovePos = move.normalized;
+            var curPos = transform.position;
+
+            normalMovePos *= .8f;
+
+            Vector2 movePos = new Vector2(curPos.x + normalMovePos.x, curPos.y + normalMovePos.y);
+            transform.DOMove(movePos, 0.1f, false);
+            //transform.Translate(move.normalized * Time.deltaTime * speed);
             return true;
         }
 
         if (space.magnitude > spaceOfBody)
         {
-            //transform.DOMove(child.position, 0.5f, false);
+            /*
+            var normalSpace = space.normalized;
+            var curPos = transform.position;
+
+            normalSpace *= 0.8f;
+            
+            Vector2 movePos = new Vector2(curPos.x + normalSpace.x, curPos.y + normalSpace.y);
+            
+            transform.DOMove(movePos, 0.1f, false);
+            */
             transform.Translate(space.normalized * Time.deltaTime * speed);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GardenEelHead : GardenEelBody
 {
@@ -20,11 +21,12 @@ public class GardenEelHead : GardenEelBody
     private const float StartSize = .5f;
     private const float StartLength = 5f;
     private const int StartCountOfBody = 7;
-    
-    private static readonly float[] LengthArray = new[] {1f, 1.5f, 3.3f, 4.3f, 5f};
+    private readonly Color newColor = new Color(100, 250, 220);
+
+    private static readonly float[] LengthArray = new[] {1f, 1.9f, 3.5f, 4.3f, 5f};
     private static readonly float[] SizeArray = new[] {1f, 1.4f, 2f, 2.6f, 3.2f};
-    private static readonly int[] ObjectCountArray = new[] {7, 10, 20, 20, 20};
-    
+    private static readonly int[] ObjectCountArray = new[] {7, 15, 20, 20, 20};
+
     public void LevelUp(int level)
     {
         int size = _bodyList.Count - 1;
@@ -41,6 +43,14 @@ public class GardenEelHead : GardenEelBody
         Debug.Log($"level : {level}, bodyCount : {_bodyList.Count}");
         
         AddBody(ObjectCountArray[level] - _bodyList.Count - 1, SizeArray[level]);
+
+        if (level == 2)
+        {
+            foreach (var bodys in _bodyList)
+            {
+                bodys.GetComponent<SpriteRenderer>().DOColor(newColor, 0.5f);
+            }
+        }
     }
     
     protected override void Start()

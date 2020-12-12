@@ -49,6 +49,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Deco.cs" t="Include" />
+          <e p="DecoFish.cs" t="Include" />
           <e p="EmotionObject.cs" t="Include" />
           <e p="EmotionObjectSpawner.cs" t="Include" />
           <e p="PlayerObject" t="Include">
@@ -62,6 +63,7 @@
             <e p="ObjectSpawnerManager.cs" t="Include" />
             <e p="OutGameUIManager.cs" t="Include" />
             <e p="Singleton.cs" t="Include" />
+            <e p="SoundManager.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="UI_Fade.cs" t="Include" />
