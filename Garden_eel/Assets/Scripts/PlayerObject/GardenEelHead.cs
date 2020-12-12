@@ -134,8 +134,10 @@ public class GardenEelHead : GardenEelBody
         if (magnitude < _lengthOfBody)
         {
             Vector2 dir = target - transform.position;
+            var usingFlip = transform.position - target;
+            
             var scale = transform.localScale;
-            if (dir.x < -1)
+            if (usingFlip.x > 0)
             {
                 scale.x = -.5f * SizeArray[_level];
             }

@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="11cc73b6-02d6-4951-8d7b-058aaae66eba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Garden_eel/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Garden_eel/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidLogcatSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidLogcatSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,9 +40,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/Head.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelBody.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Singleton/InGameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerObject/GardenEelHead.cs" />
       </list>
     </option>
   </component>
