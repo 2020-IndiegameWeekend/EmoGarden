@@ -72,6 +72,13 @@ public class GardenEelHead : GardenEelBody
             _tail = obj.transform;
             _bodyList.Add(bodyComponent);
         }
+
+        for (int i = _bodyList.Count - 2; i >= 0; i--)
+        {
+            _bodyList[i].child = _bodyList[i + 1].transform;
+        }
+        
+        _bodyList[_bodyList.Count - 1].SetIsTail(true);
     }
 
     protected override bool MoveToTarget(Vector3 target)

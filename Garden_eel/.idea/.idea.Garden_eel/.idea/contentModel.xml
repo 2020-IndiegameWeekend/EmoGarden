@@ -48,6 +48,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="UI_InGameMainUI.cs" t="Include" />
+            <e p="UI_ResultUI.cs" t="Include" />
           </e>
         </e>
       </e>
