@@ -50,6 +50,7 @@ public class InGameManager : Singleton<InGameManager>
             _curProgressValue = 0;
             _curLevel++;
             AddScore(_lvUpScore[_curLevel - 1]);
+            SoundManager.instance.PlayEffectSound("LevelUp_Effect");
             _head.LevelUp(_curLevel);
             StartCoroutine(CameraSizeUpCoroutine());
         }

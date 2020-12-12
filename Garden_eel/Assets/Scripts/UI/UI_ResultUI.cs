@@ -13,6 +13,11 @@ public class UI_ResultUI : MonoBehaviour
     private Text _text_Score;
     [SerializeField]
     private Text _text_Time;
+    [SerializeField]
+    private Text _text_Restart;
+
+    [SerializeField]
+    private Button _button_Restart;
 
     [SerializeField]
     private Color _color_Success;
@@ -33,6 +38,12 @@ public class UI_ResultUI : MonoBehaviour
         overScore = score;
 
         gameObject.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SoundManager.instance.PlayEffectSound("Touch_Effect");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
     }
 
     private void OnEnable()
@@ -75,6 +86,9 @@ public class UI_ResultUI : MonoBehaviour
         }
 
         yield return new WaitUntil(() => stampEnd == true);
+
+        _text_Restart.gameObject.SetActive(true);
+        _button_Restart.gameObject.SetActive(true);
     }
 
     private void StampAnimation()

@@ -7,6 +7,7 @@ public class UI_OutGameMainUI : MonoBehaviour
 {
     public void LoadInGame()
     {
+        SoundManager.instance.PlayEffectSound("Touch_Effect");
         SceneManager.LoadScene("InGame");
     }
 }
