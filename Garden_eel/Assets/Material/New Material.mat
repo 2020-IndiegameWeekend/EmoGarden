@@ -71,7 +71,7 @@ Material:
     - _Parallax: 0.02
     - _Shear: 1
     - _Size: 15
-    - _Skew: 0.5
+    - _Skew: 0.27
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.5
@@ -80,6 +80,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 1, g: 0.9275902, b: 0.7137255, a: 1}
-    - _Color2: {r: 1, g: 1, b: 1, a: 0}
+    - _Color1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color2: {r: 1, g: 0.92941177, b: 0.7137255, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

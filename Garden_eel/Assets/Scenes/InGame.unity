@@ -1345,7 +1345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1153139696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,11 +1358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3eef6c7ecda590448d3132c3f0b2f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 1, g: 0.9275902, b: 0.7137255, a: 1}
-  color2: {r: 1, g: 1, b: 1, a: 0}
+  color1: {r: 1, g: 1, b: 1, a: 1}
+  color2: {r: 1, g: 0.92941177, b: 0.7137255, a: 0}
   speed: 0.5
   size: 15
-  skew: 0.5
+  skew: 0.27
   shear: 1
   fade: 1
   contrast: 1
@@ -1423,8 +1423,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153139695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 18.5, z: 0}
-  m_LocalScale: {x: 13, y: 7, z: 1}
+  m_LocalPosition: {x: 0, y: 18.78, z: 0}
+  m_LocalScale: {x: 21, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
