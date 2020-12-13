@@ -10,7 +10,7 @@ public enum EmotionScale { ONE = 1, TWO = 3, THREE = 5, FOUR = 10, FIVE = 20 }
 public class EmotionObject : MonoBehaviour
 {
     public float[] badScale = new float[5] { 0.3f, 0.5f, 0.7f, 0.9f, 1.1f };
-    public float goodScale = 1f;
+    public float goodScale = 0.8f;
 
     public EmotionType emotionType = EmotionType.BAD;
 

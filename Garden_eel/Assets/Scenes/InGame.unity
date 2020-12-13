@@ -1164,7 +1164,7 @@ MonoBehaviour:
   _curEmotionObjectCount: 0
   _startObjectCount: 5
   _spawnerIdx: 1
-  spawnPercents: 010000000400000002000000000000000000000001000000
+  spawnPercents: 010000000500000002000000000000000000000001000000
   spawnTime: 2
 --- !u!61 &337857282
 BoxCollider2D:
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   _curEmotionObjectCount: 0
   _startObjectCount: 5
   _spawnerIdx: 2
-  spawnPercents: 000000000100000004000000030000000200000002000000
+  spawnPercents: 000000000000000002000000030000000200000001000000
   spawnTime: 2
 --- !u!61 &633805810
 BoxCollider2D:
@@ -2641,7 +2641,7 @@ MonoBehaviour:
   _curEmotionObjectCount: 0
   _startObjectCount: 5
   _spawnerIdx: 2
-  spawnPercents: 010000000200000005000000020000000000000002000000
+  spawnPercents: 010000000200000003000000020000000000000001000000
   spawnTime: 1.5
 --- !u!61 &876511843
 BoxCollider2D:
@@ -3618,7 +3618,7 @@ MonoBehaviour:
   _curEmotionObjectCount: 0
   _startObjectCount: 10
   _spawnerIdx: 0
-  spawnPercents: 050000000200000000000000000000000000000001000000
+  spawnPercents: 060000000200000000000000000000000000000001000000
   spawnTime: 2
 --- !u!61 &1270294841
 BoxCollider2D:
